@@ -1,1 +1,55 @@
+name: "API CD"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - "app/api/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      AZURE_WEBAPP_NAME: "app-s03-api"        # prilagodi
+      AZURE_RESOURCE_GROUP: "rg-s03-app"      # prilagodi
+      AZURE_SLOT: "staging"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Publish
+        run: dotnet publish app/api -c Release -o publish
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to staging slot
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: ${{ env.AZURE_SLOT }}
+          package: publish
+
+      - name: Health check
+        run: |
+          curl -f https://${{ env.AZURE_WEBAPP_NAME }}-staging.azurewebsites.net/health
+
+      - name: Swap slots (staging → production)
+        run: |
+          az webapp deployment slot swap \
+            --name $AZURE_WEBAPP_NAME \
+            --resource-group $AZURE_RESOURCE_GROUP \
+            --slot staging \
+            --target-slot production
 
