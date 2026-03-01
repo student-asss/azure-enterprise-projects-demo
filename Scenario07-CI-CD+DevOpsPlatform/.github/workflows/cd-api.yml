@@ -1,6 +1,6 @@
 # version without slots
 
-name: "API CD"
+name: API CD
 
 on:
   workflow_dispatch:
