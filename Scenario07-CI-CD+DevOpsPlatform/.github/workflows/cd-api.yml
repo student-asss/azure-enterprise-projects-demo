@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AZURE_WEBAPP_NAME: "app-s03-api"        # prilagodi
-      AZURE_RESOURCE_GROUP: "rg-s03-app"      # prilagodi
+      AZURE_WEBAPP_NAME: "app-s07-api"        # prilagodi
+      AZURE_RESOURCE_GROUP: "rg-s07-devops"      # prilagodi
       AZURE_SLOT: "staging"
 
     steps:
