@@ -1,0 +1,11 @@
+﻿NAME,TYPE,LOCATION,RESOURCE LINK
+"bastion-dev","Bastion","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/bastionHosts/bastion-dev"
+"dev-vm-01","Virtual machine","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Compute/virtualMachines/dev-vm-01"
+"dev-vm-01-nsg","Network security group","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/networkSecurityGroups/dev-vm-01-nsg"
+"dev-vm-01758_z1","Network Interface","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/networkInterfaces/dev-vm-01758_z1"
+"dev-vm-01_OsDisk_1_b791548e186b4eab9b52a3542fb1ad9e","Disk","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/RG-S02-DEV/providers/Microsoft.Compute/disks/dev-vm-01_OsDisk_1_b791548e186b4eab9b52a3542fb1ad9e"
+"nsg-dev","Network security group","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/networkSecurityGroups/nsg-dev"
+"pip-bastion-dev","Public IP address","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/publicIPAddresses/pip-bastion-dev"
+"vnet-dev","Virtual network","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/virtualNetworks/vnet-dev"
+"vnet-norwayeast","Virtual network","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/virtualNetworks/vnet-norwayeast"
+"vnet-norwayeast-bastion","Bastion","Norway East","https://portal.azure.com#resource/subscriptions/890f64ef-3922-400d-9556-def4c79f9bab/resourceGroups/rg-s02-dev/providers/Microsoft.Network/bastionHosts/vnet-norwayeast-bastion"
