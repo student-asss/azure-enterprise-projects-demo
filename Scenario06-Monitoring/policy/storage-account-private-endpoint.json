@@ -1,12 +1,12 @@
 {
   "properties": {
-    "displayName": "Enforce Private Endpoint and disable public access for Key Vault",
+    "displayName": "Enforce Private Endpoint and disable public access for Storage Accounts",
     "policyType": "Custom",
     "mode": "Indexed",
-    "description": "Requires Azure Key Vault to have public network access disabled and to use private endpoints.",
+    "description": "Requires Azure Storage Accounts to have public network access disabled and to use private endpoints.",
     "metadata": {
       "version": "1.0.0",
-      "category": "Key Vault"
+      "category": "Storage"
     },
     "parameters": {},
     "policyRule": {
@@ -14,17 +14,17 @@
         "allOf": [
           {
             "field": "type",
-            "equals": "Microsoft.KeyVault/vaults"
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "anyOf": [
               {
-                "field": "Microsoft.KeyVault/vaults/publicNetworkAccess",
+                "field": "Microsoft.Storage/storageAccounts/publicNetworkAccess",
                 "notEquals": "Disabled"
               },
               {
                 "count": {
-                  "field": "Microsoft.KeyVault/vaults/privateEndpointConnections[*]"
+                  "field": "Microsoft.Storage/storageAccounts/privateEndpointConnections[*]"
                 },
                 "equals": 0
               }

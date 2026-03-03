@@ -1,12 +1,12 @@
 {
   "properties": {
-    "displayName": "Enforce Private Endpoint and disable public access for Key Vault",
+    "displayName": "Enforce Private Endpoint and disable public access for Azure SQL Server",
     "policyType": "Custom",
     "mode": "Indexed",
-    "description": "Requires Azure Key Vault to have public network access disabled and to use private endpoints.",
+    "description": "Requires Azure SQL Servers to have public network access disabled and to use private endpoints.",
     "metadata": {
       "version": "1.0.0",
-      "category": "Key Vault"
+      "category": "SQL"
     },
     "parameters": {},
     "policyRule": {
@@ -14,17 +14,17 @@
         "allOf": [
           {
             "field": "type",
-            "equals": "Microsoft.KeyVault/vaults"
+            "equals": "Microsoft.Sql/servers"
           },
           {
             "anyOf": [
               {
-                "field": "Microsoft.KeyVault/vaults/publicNetworkAccess",
+                "field": "Microsoft.Sql/servers/publicNetworkAccess",
                 "notEquals": "Disabled"
               },
               {
                 "count": {
-                  "field": "Microsoft.KeyVault/vaults/privateEndpointConnections[*]"
+                  "field": "Microsoft.Sql/servers/privateEndpointConnections[*]"
                 },
                 "equals": 0
               }
